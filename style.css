@@ -95,6 +95,7 @@ body {
   box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
 }
 .buttons{
+  display: inline-block;
 	height: 100%;
 	width: 20%;
 }
@@ -102,3 +103,20 @@ body {
 	width: 75%;
 	margin-left: 12.5%
 }
+.string {
+  
+}
+.info{ 
+  overflow: scroll; / Добавляем полосы прокрутки /
+  padding: 22px; / Поля вокруг текста /
+  left: 0px; 
+  background-color: yellow;
+  height: 370px; / Высота блока /
+  width: 79%;
+  white-space: pre-wrap;
+  }
+
+.info-box{ 
+  display: inline-block;
+  width:79%;
+  }
