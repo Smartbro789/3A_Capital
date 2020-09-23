@@ -8,8 +8,18 @@
     <title>3A Capital</title>
 
     <script>
-    function alarming(){
-        alert("you gay");
+    function mission_lab1(){
+        var text = document.getElementById("t1");
+        // text.innerHTML="<img src='images/pic.png'>";
+        //или
+        var pic = document.createElement("IMG");
+        pic.src = "images/pic1.jpg";
+        text.appendChild(pic);
+
+
+
+
+        // document.getElementById("t1").innerHTML = "<a><img src="images/pic1.png"></a>";
     }
     </script>
 </head>
@@ -44,47 +54,17 @@
         <div class="mainpage">
             <div class="buttons">
             	<table>
-          			<tr><td><button class="button" onclick="alarming()">ОПИС ПРЕДМЕТНОГО СЕРЕДОВИЩА</button></td></tr>
-          			<tr><td><button class="button">ЗАГАЛЬНА ПОСТАНОВКА  ЗАДАЧІ ПРОГРАМИ</button></td></tr>
-          			<tr><td><button class="button">ПОСТАНОВКА  ЗАДАЧІ<br>Лабораторної роботи №1</button></td></tr>
-          			<tr><td><button class="button">СТРУКТУРА ДОКУМЕНТА</button></td></tr>
-          			<tr><td><button class="button">HTML-код ТАБЛИЦЬ</button></td></tr>
-          			<tr><td><button class="button">HTML-код ФОРМИ</button></td></tr>
-          			<tr><td><button class="button">HTML-код ЗОБРАЖЕННЯ</button></td></tr>
+          			<tr><td><button class="button" onclick="description()">ОПИС ПРЕДМЕТНОГО СЕРЕДОВИЩА</button></td></tr>
+          			<tr><td><button class="button" onclick="mission()">ЗАГАЛЬНА ПОСТАНОВКА ЗАДАЧІ ПРОГРАМИ</button></td></tr>
+          			<tr><td><button class="button" onclick="mission_lab1()">ПОСТАНОВКА  ЗАДАЧІ<br>Лабораторної роботи №1</button></td></tr>
+          			<tr><td><button class="button" onclick="structure()">СТРУКТУРА ДОКУМЕНТА</button></td></tr>
+          			<tr><td><button class="button" onclick="table()">HTML-код ТАБЛИЦЬ</button></td></tr>
+          			<tr><td><button class="button" onclick="form()">HTML-код ФОРМИ</button></td></tr>
+          			<tr><td><button class="button" onclick="picture()">HTML-код ЗОБРАЖЕННЯ</button></td></tr>
         		</table>
             </div>
             <div class="info-box">  
-                <p class="info">тестовый текст
-Собранный заново тут по частям
-И да, давно отчасти живу тем
-Чтобы всё вокруг видеть настоящим
-Если ещё кто-то словит счастье
-То тогда, вообще не нужен
-Весь жизненный кастинг
-Чтобы наделать вещей
-Очередной день, когда я бы мог
-Быть с ней там где-то
-Смотреть кино и представлять
-Как будто мы в этих сюжетах
-Но я, снова предпочел
-Отдать себя этим куплетам
-Так что, ты прости меня
-За моё странное кино, где
-Окей, мы просто играем в жизнь
-Часто не понимая роль
-Наши сюжеты это белый лист
-Где мы вместе напишем свой
-Окей, мы просто играем в жизнь
-Часто не понимая роль
-Наши сюжеты это белый лист
-Где мы вместе напишем свой
-Да, или не напишем
-На всё забьём и станем ближе
-Среди других таких же (таких же)
-Можешь молчать, я не обижен
-Убегать, но я о себе дам знать…
-
-</p>
+                <p class="info" id="t1"></p>
             </div>
         </div>
 	</div>
