@@ -5,80 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    
     <title>3A Capital</title>
-
+    <script src="js/lab1methods.js"></script>
+    <script src="js/lab2methods.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
-    function mission_lab1(){
-
-
-
-
-        document.getElementById("t1").innerHTML = "придбати практичні навички роботи  з html-документом, таблицями,формами, зображеннями, посиланнями";
-    }
-    function description(){
-        var text = document.getElementById("t1");
-        text.innerHTML = "";
-        var pic1 = document.createElement("IMG");
-        var pic2 = document.createElement("IMG");
-        var pic3 = document.createElement("IMG");
-        var pic4 = document.createElement("IMG");
-        var pic5 = document.createElement("IMG");
-        var pic6 = document.createElement("IMG");
-        var pic7 = document.createElement("IMG");
-        pic1.src = "images/description/Screenshot_1.jpg";
-        pic2.src = "images/description/Screenshot_2.jpg";
-        pic3.src = "images/description/Screenshot_3.jpg";
-        pic4.src = "images/description/Screenshot_4.jpg";
-        pic5.src = "images/description/Screenshot_5.jpg";
-        pic6.src = "images/description/Screenshot_6.jpg";
-        pic7.src = "images/description/Screenshot_7.jpg";
-        text.appendChild(pic1);
-        text.appendChild(pic2);
-        text.appendChild(pic3);
-        text.appendChild(pic4);
-        text.appendChild(pic5);
-        text.appendChild(pic6);
-        text.appendChild(pic7);
-    }
-    function structure(){
-        var text = document.getElementById("t1");
-        text.innerHTML = "";
-        var pic1 = document.createElement("IMG");
-        var pic2 = document.createElement("IMG");
-        pic1.src = "images/structure/Screenshot_1.jpg";
-        pic2.src = "images/structure/Screenshot_2.jpg";
-        text.appendChild(pic1);
-        text.appendChild(pic2);
-    }
-    function table(){
-        var text = document.getElementById("t1");
-        text.innerHTML = "";
-        var pic1 = document.createElement("IMG");
-        pic1.src = "images/table.jpg";
-        text.appendChild(pic1);
-    }
-    function formCode(){
-        var text = document.getElementById("t1");
-        text.innerHTML = "";
-        var pic1 = document.createElement("IMG");
-        pic1.src = "images/form.jpg";
-        text.appendChild(pic1);
-    }
-    function picture(){
-        var text = document.getElementById("t1");
-        text.innerHTML = "";
-        var pic1 = document.createElement("IMG");
-        pic1.src = "images/picture.jpg";
-        text.appendChild(pic1);
-    }
-    function mission(){
-        var text = document.getElementById("t1");
-        text.innerHTML = "";
-        var pic1 = document.createElement("IMG");
-        pic1.src = "images/mission.jpg";
-        text.appendChild(pic1);
-    }
+    $(function() {
+        var tab = $('#tabs .tabs-items > div'); 
+        tab.hide().filter(':first').show(); 
+        
+        // Клики по вкладкам.
+        $('#tabs .tabs-nav a').click(function(){
+            tab.hide(); 
+            tab.filter(this.hash).show(); 
+            $('#tabs .tabs-nav a').removeClass('active');
+            $(this).addClass('active');
+            return false;
+        }).filter(':first').click();
+     
+        // Клики по якорным ссылкам.
+        $('.tabs-target').click(function(){
+            $('#tabs .tabs-nav a[href=' + $(this).data('id')+ ']').click();
+        });
+    });
     </script>
+
 </head>
 
 <body>
@@ -96,35 +48,55 @@
                 <h4>Студентів групи ІА-92: Єрмака Олега, Панасюка Олександра, Роліка Олександра</h4>
             </div>
         </div>
-        <div class="student">
-            <div class="container">
 
-            </div>
-        </div>
-        <div class="labs">
-            <nav class="container">
-                <a class="nav_link" href="main.html">Lab 1</a>
-                <a class="nav_link" href="#">Lab 2</a>
-                <a class="nav_link" href="#">Lab 3</a>
-            </nav>
-        </div>
-        <div class="mainpage">
+
+<div id="tabs">
+    <!-- Кнопки -->
+    <ul class="tabs-nav">
+        <li><a href="#tab-1">Lab 1</a></li>
+        <li><a href="#tab-2">Lab 2</a></li>
+    </ul>   
+    
+    <!-- Контент -->
+    <div class="tabs-items">
+        <div class="tabs-item" id="tab-1">
+            <div class="mainpage">
             <div class="buttons">
-            	<table>
-          			<tr><td><button class="button" onclick="description()">ОПИС ПРЕДМЕТНОГО СЕРЕДОВИЩА</button></td></tr>
-          			<tr><td><button class="button" onclick="mission()">ЗАГАЛЬНА ПОСТАНОВКА ЗАДАЧІ ПРОГРАМИ</button></td></tr>
-          			<tr><td><button class="button" onclick="mission_lab1()">ПОСТАНОВКА  ЗАДАЧІ<br>Лабораторної роботи №1</button></td></tr>
-          			<tr><td><button class="button" onclick="structure()">СТРУКТУРА ДОКУМЕНТА</button></td></tr>
-          			<tr><td><button class="button" onclick="table()">HTML-код ТАБЛИЦЬ</button></td></tr>
-          			<tr><td><button class="button" onclick="formCode()">HTML-код ФОРМИ</button></td></tr>
-          			<tr><td><button class="button" onclick="picture()">HTML-код ЗОБРАЖЕННЯ</button></td></tr>
-        		</table>
+                <table>
+                    <tr><td><button class="button" onclick="description()">ОПИС ПРЕДМЕТНОГО СЕРЕДОВИЩА</button></td></tr>
+                    <tr><td><button class="button" onclick="mission()">ЗАГАЛЬНА ПОСТАНОВКА ЗАДАЧІ ПРОГРАМИ</button></td></tr>
+                    <tr><td><button class="button" onclick="mission_lab1()">ПОСТАНОВКА  ЗАДАЧІ<br>Лабораторної роботи №1</button></td></tr>
+                    <tr><td><button class="button" onclick="structure()">СТРУКТУРА ДОКУМЕНТА</button></td></tr>
+                    <tr><td><button class="button" onclick="table()">HTML-код ТАБЛИЦЬ</button></td></tr>
+                    <tr><td><button class="button" onclick="formCode()">HTML-код ФОРМИ</button></td></tr>
+                    <tr><td><button class="button" onclick="picture()">HTML-код ЗОБРАЖЕННЯ</button></td></tr>
+                </table>
             </div>
             <div class="info-box">  
                 <p class="info" id="t1"></p>
             </div>
         </div>
-	</div>
+        </div>
+        <div class="tabs-item" id="tab-2">
+            <div class="mainpage">
+            <div class="buttons">
+                <table>
+                    <tr><td><button class="button" onclick="mission_lab2()">ПОСТАНОВКА ЗАДАЧІ Лабораторної роботи №2</button></td></tr>
+                    <tr><td><button class="button" onclick="lists()">СПИСКИ</button></td></tr>
+                    <tr><td><button class="button" onclick="identificators()">ІДЕНТИФІКАТОРИ</button></td></tr>
+                    <tr><td><button class="button" onclick="paddings()">ВІДСТУПИ</button></td></tr>
+                    <tr><td><button class="button" onclick="floatElements()">ПЛАВАЮЧІ ЕЛЕМЕНТИ</button></td></tr>
+                    <tr><td><button class="button" onclick="tagClassSelectors()">Селектори тегу і класу</button></td></tr>
+                    <tr><td><button class="button" onclick="otherSelectors()">Інші селектори</button></td></tr>
+                    <tr><td><button class="button" onclick="selectorsGrouping()">Групування селекторів</button></td></tr>
+                </table>
+            </div>
+            <div class="info-box">  
+                <p class="info" id="t2"></p>
+            </div>
+        </div>     
+    </div>
+</div>  
+</div>
 </body>
-
 </html>
