@@ -56,9 +56,16 @@ body {
 
 input[type="submit"] {
     background-color: gold;
-    margin-left: 10px;
+    margin: 0px 10px;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     border: none;
+    float: right;
+}
+
+.list {
+    padding-left: 10px;
+    border: 4px double black;
+    border-radius: 10px;
 }
