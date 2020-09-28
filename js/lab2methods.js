@@ -17,43 +17,43 @@ function mission_lab2(){
         text.appendChild(pic1);
     }
     function paddings(){
-        var text = document.getElementById("t1");
+        var text = document.getElementById("t2");
         text.innerHTML = "";
         var pic1 = document.createElement("IMG");
-        pic1.src = "images/table.jpg";
+        pic1.src = "images/lab2/paddings.jpg";
         text.appendChild(pic1);
     }
     function floatElements(){
-        var text = document.getElementById("t1");
+        var text = document.getElementById("t2");
         text.innerHTML = "";
         var pic1 = document.createElement("IMG");
-        pic1.src = "images/form.jpg";
+        pic1.src = "images/lab2/float.jpg";
         text.appendChild(pic1);
     }
     function tagClassSelectors(){
         var text = document.getElementById("t2");
         text.innerHTML = "";
         var pic1 = document.createElement("IMG");
-        pic1.src = "images/lab2/tagclassselector.jpg";
+        var pic2 = document.createElement("IMG");
+        pic1.src = "images/lab2/tagselector.jpg";
+        pic2.src = "images/lab2/classselector.jpg";
         text.appendChild(pic1);
+        text.appendChild(pic2);
     }
     function otherSelectors(){
         var text = document.getElementById("t2");
         text.innerHTML = "";
-        var pic1 = document.createElement("IMG");
         var pic2 = document.createElement("IMG");
         var pic3 = document.createElement("IMG");
-        pic1.src = "images/lab2/otherSelectors1.jpg";
         pic2.src = "images/lab2/otherSelectors2.jpg";
         pic3.src = "images/lab2/otherSelectors3.jpg";
-        text.appendChild(pic1);
         text.appendChild(pic2);
         text.appendChild(pic3);
     }
     function selectorsGrouping(){
-        var text = document.getElementById("t1");
+        var text = document.getElementById("t2");
         text.innerHTML = "";
         var pic1 = document.createElement("IMG");
-        pic1.src = "images/mission.jpg";
+        pic1.src = "images/lab2/otherSelectors1.jpg";
         text.appendChild(pic1);
     }
