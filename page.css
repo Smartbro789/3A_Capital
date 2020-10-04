@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+#header {
+    width: 100%;
+    padding-top: 20px;
+
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #fed922;
+}
+
+.header_logo {
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #fed922;
+    text-align: center;
+}
