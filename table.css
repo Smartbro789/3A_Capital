@@ -1,0 +1,14 @@
+
+table {border: 1px solid black;}
+th {
+      font-weight: normal;
+      background:  #d9c10b;
+      padding: 10px;
+      
+}
+td {
+      color: #1d002e;
+      border-top: 1px dashed #fff;
+      padding: 10px;
+      background: #ffee70;
+}
