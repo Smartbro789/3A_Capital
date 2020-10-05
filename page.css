@@ -22,7 +22,14 @@ body {
     z-index: 1000;
     background-color: #F9E169;
 }
-
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #F9E169;
+    text-align: center;
+}
 .header_logo {
     font-size: 30px;
     font-weight: 700;
@@ -73,11 +80,3 @@ div.td{
     text-align: center;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #F9E169;
-    text-align: center;
-}
