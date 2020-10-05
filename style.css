@@ -98,11 +98,14 @@ body {
   display: inline-block;
 	height: 100%;
 	width: 20%;
+  vertical-align: top;
 }
+
 .page{
 	width: 75%;
 	margin-left: 12.5%
 }
+
 .string {
   
 }
