@@ -39,12 +39,8 @@ body {
 div.table{
     height:0;
 }
-div.tr{
-    height:0;
-}
 
 div.table[class] {height:auto; display: table;}
-div.tr[class] { height:auto; display: table-row;}
 div.td[class] {float:none; display: table-cell;}
  
 div.td{
