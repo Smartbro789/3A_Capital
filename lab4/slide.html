@@ -18,7 +18,7 @@
         document.images['imageShow'].src = imagesArray[countImages];
         countImages = countImages + 1;
     }
-    function gavno() {
+    function resize() {
         document.getElementById('imageShow').style.height = document.getElementById('imgHeight').value + "px";
         document.getElementById('imageShow').style.width = document.getElementById('imgWidth').value + "px";
     }
@@ -38,7 +38,7 @@
         Введіть висоту зображень:
         <input type="text" id="imgHeight" value="300"> 
     </p>
-    <input type="button" value="Resize" onClick="gavno();">
+    <input type="button" value="Resize" onClick="resize();">
 </body>
 
 </html>
