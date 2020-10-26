@@ -87,3 +87,9 @@ input[type="submit"] {
     border: 4px double black;
     border-radius: 10px;
 }
+
+#result, #result1, #result2, #result3, #result4, #result5, #result6 {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
