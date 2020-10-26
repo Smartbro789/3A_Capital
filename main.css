@@ -35,13 +35,12 @@ body {
 }
 
 
-.header {
+#header {
     width: 100%;
     padding-top: 30px;
 
-    position: absolute;
+    display:block;
     top: 0;
-    right: 0;
     left: 0;
     z-index: 1000;
 }
@@ -52,6 +51,45 @@ body {
     padding-left: 20px;
 }
 
-.audio {
-    padding-top: 100px;
+.slogan {
+    padding-left: 10px;
+}
+
+i + strong{
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%);
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+    font-size: 32;
+}
+b > em{
+    background: linear-gradient(yellow,white);
+    text-align: left;
+    font-size: small;
+    padding: 3px;
+}
+
+.table {
+    display: block;
+}
+
+input[type="submit"] {
+    background-color: gold;
+    margin: 0px 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    float: right;
+}
+
+.list {
+    padding-left: 10px;
+    border: 4px double black;
+    border-radius: 10px;
+}
+
+#result, #result1, #result2, #result3, #result4, #result5, #result6 {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 500;
 }
