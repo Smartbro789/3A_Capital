@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type='text/javascript' src='unitegallery/js/jquery-11.0.min.js'></script>
+    <script type='text/javascript' src='unitegallery/js/unitegallery.min.js'></script>
+    <script type='text/javascript' src='unitegallery/js/ug-theme-tilesgrid.js'></script>
+    <link rel='stylesheet' href='unitegallery/css/style.css' type='text/css'>
+    <link rel="stylesheet" href="main.css">
+    <title>AAA Capital</title>
+
+</head>
+
+<body>
+    <div class="background">
+        <header id="header">
+            <div class="container">
+                <div class="header_logo">AAA Capital</div>
+            </div>
+        </header>
+
+        <div id="gallery" style="display:none;">
+
+            <img alt="1" data-type="youtube" src="unitegallery/images/thumbs/thumb1.jpg" data-videoid="pnVGa9Zy2OU"
+                style="display:none">
+
+            <img alt="2" data-type="youtube" src="unitegallery/images/thumbs/thumb2.jpg" data-videoid="LXaBvkBoxCk"
+                style="display:none">
+
+            <img alt="3" data-type="youtube" src="unitegallery/images/thumbs/thumb5.jpg" data-videoid="vVrkDkka8Ug"
+                style="display:none">
+
+            <img alt="4" data-type="youtube" src="unitegallery/images/thumbs/thumb6.jpg" data-videoid="pNxqwO9aOOk"
+                style="display:none">
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        jQuery(document).ready(function () {
+
+            jQuery("#gallery").unitegallery({
+                gallery_width: 960,
+                grid_num_rows: 9999
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
