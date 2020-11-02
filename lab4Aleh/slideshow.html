@@ -26,21 +26,23 @@
 </script>
 
 <body>
-    <div class="change">
-        <img width="720" height="480 "border="1" alt="" id="imageShow">
-    </div>
     <input class="button" type="button" value="Start" onClick="timer = setInterval('start()', document.all.timer.value*1000)">
     <input class="button" type="button" value="Change Size" onClick="changeSize();">
     <input class="button" type="button" value="Stop" onClick="clearInterval(timer)">
-    <p>
+    <div class="change">
+        <img width="720" height="480 "border="1" alt="" id="imageShow">
+    </div>
+    
+    <div>
+       <p>
         Введіть інтервал показу:
         <input type="text" id="timer" value="1"><br><br>
         Введіть ширину зображень:
         <input type="text" id="imgW" value="720"><br><br>
         Введіть висоту зображень:
         <input type="text" id="imgH" value="480"> 
-    </p>
-      
+    </p> 
+    </div>
 </body>
 
 </html>
