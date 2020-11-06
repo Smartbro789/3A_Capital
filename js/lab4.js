@@ -1,3 +1,4 @@
+//ПАНАСЮК О.А.
 function arrayB(massive){
 	var arrB = [];
 	var max = getMaxOfArray(massive);

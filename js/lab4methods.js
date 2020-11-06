@@ -33,14 +33,20 @@ function task_4(){
     var pic2 = document.createElement("IMG");
     var pic3 = document.createElement("IMG");
     var pic4 = document.createElement("IMG");
+    var pic5 = document.createElement("IMG");
+    var pic6 = document.createElement("IMG");
     pic1.src = "images/lab4/task4Panasiuk.jpg";
     pic2.src = "images/lab4/result4Panasiuk.jpg";
-    pic3.src = "images/lab4/taks4gleks.jpg";
+    pic3.src = "images/lab4/task4gleks.jpg";
     pic4.src = "images/lab4/result4Panasiuk.jpg";
+    pic5.src = "images/lab4/task4glek2.jpg";
+    pic6.src = "images/lab4/result4glek2.jpg";
     text.appendChild(pic1);
     text.appendChild(pic2);
     text.appendChild(pic3);
     text.appendChild(pic4);
+    text.appendChild(pic5);
+    text.appendChild(pic6);
 }
 function task_6(){
     var text = document.getElementById("t4");
@@ -49,15 +55,22 @@ function task_6(){
     var pic2 = document.createElement("IMG");
     var pic3 = document.createElement("IMG");
     var pic4 = document.createElement("IMG");
+    var pic5 = document.createElement("IMG");
+    var pic6 = document.createElement("IMG");
     pic1.src = "images/lab4/calcCode.jpg";
     pic2.src = "images/lab4/calc.jpg";
     pic3.src = "images/lab4/sliderCode.jpg";
     pic4.src = "images/lab4/slider.jpg";
+    pic5.src = "images/lab4/task6gleks.jpg";
+    pic6.src = "images/lab4/result6gleks.jpg";
     text.appendChild(pic1);
     text.appendChild(pic2);
     text.appendChild(pic3);
     text.appendChild(pic4);
+    text.appendChild(pic5);
+    text.appendChild(pic6);
 }
 function conclution(){
-
+var text = document.getElementById("t4");
+    text.innerHTML = "Oleg: Під час виконання лабораторної роботи я навчився користуватися інформаційним змістом web-сторінки мовою JavaScript, використовуючи масиви та обробник подій.<br>Rolik: Під час виконання роботи, я вдосконалив навички роботи з масивами та зображеннями за допомогою мови javascript.<br>Panasiuk: Вдосконалів навічкі роботі з мовою JavaScrиpt та освіжів знання роботі з масівамі.";
 }
