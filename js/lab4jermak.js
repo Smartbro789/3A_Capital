@@ -9,6 +9,10 @@ function division(arr){
 		}
 	}
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 919287220b0024cf8a1932220d63a2d725f089d9
 function selectionSort(arr){
     var n = arr.length;
     for(var i=0; i < n-1; i++)
@@ -23,6 +27,10 @@ function selectionSort(arr){
     }
     return arr;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 919287220b0024cf8a1932220d63a2d725f089d9
 function task3(){
 	var len = document.getElementById('length').value;
 	array = arrayRandomizer(len);
