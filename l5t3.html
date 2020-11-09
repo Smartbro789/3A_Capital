@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <title>3A Capital</title>
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $(function() {
+        var tab = $('#tabs .tabs-items > div'); 
+        tab.hide().filter(':first').show(); 
+        
+        $('#tabs .tabs-nav a').click(function(){
+            tab.hide(); 
+            tab.filter(this.hash).show(); 
+            $('#tabs .tabs-nav a').removeClass('active');
+            $(this).addClass('active');
+            return false;
+        }).filter(':first').click();
+    });
+    </script>
+    <script>
+        $.datepicker.regional['ru'] = {
+            closeText: 'Закрыть',
+            prevText: 'Предыдущий',
+            nextText: 'Следующий',
+            currentText: 'Сегодня',
+            monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+            monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
+            dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+            dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+            dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+            weekHeader: 'Не',
+            dateFormat: 'dd.mm.yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['ru']);
+    </script>
+
+</head>
+
+<body>
+    
+	<div class="page">
+        <header class="header">
+            <div class="container_header">
+                <div class="header_logo">AAA Capital</div>
+            </div>
+        </header>
+        <div class="title">
+            <div class="container">
+            </div>
+        </div>
+
+<input type="text" id="datepicker">
+    <script>
+        $(function(){
+            $("#datepicker").datepicker();
+        });
+    </script>
+<div id="tabs">
+    <ul class="tabs-nav">
+        <li><a href="#tab-1">Date 1</a></li>
+        <li><a href="#tab-2">Date 2</a></li>
+        <li><a href="#tab-3">Date 3</a></li>
+        <li><a href="#tab-4">Date 4</a></li>
+    </ul>   
+    
+    <div class="tabs-items">
+        <div class="tabs-item" id="tab-1">
+            <div class="mainpage">
+            <div class="buttons">
+            </div>
+                <p>text 1</p>
+        </div>
+        </div>
+        <div class="tabs-item" id="tab-2">
+            <div class="mainpage">
+            <div class="buttons">
+            </div>
+                <p>text 2</p>
+            </div>     
+    </div>
+    <div class="tabs-item" id="tab-3">
+            <div class="mainpage">
+            <div class="buttons">
+            </div>
+                <p>text 3</p>
+            </div>     
+    </div>
+    <div class="tabs-item" id="tab-4">
+            <div class="mainpage">
+            <div class="buttons">
+            </div>
+                <p>text 4</p>
+            </div>
+        </div>
+</div>  
+</div>
+</body>
+</html>

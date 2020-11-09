@@ -1,3 +1,4 @@
+//ЕРМАК О.Р
 var arrpar = [];
 var arrnepar = [];
 function division(arr){
@@ -9,7 +10,6 @@ function division(arr){
 		}
 	}
 }
-
 function selectionSort(arr){
     var n = arr.length;
     for(var i=0; i < n-1; i++)
@@ -24,7 +24,6 @@ function selectionSort(arr){
     }
     return arr;
 }
-
 function task3(){
 	var len = document.getElementById('length').value;
 	array = arrayRandomizer(len);
