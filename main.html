@@ -12,6 +12,23 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script>
+            $( function() {
+                var spinner = $( "#spinner" ).spinner();
+                $( "#getvalue" ).on( "click", function() {
+                alert( spinner.spinner( "value" ) );
+                });
+                $( "#setvalue" ).on( "click", function() {
+                spinner.spinner( "value", 5 );
+                });
+                $( "button" ).button();
+            } );
+    </script>
 </head>
 
 <body>
@@ -137,6 +154,16 @@
                             var clock_timer_1246519141 = -1; </script> 
                             <script type="text/javascript" charset="UTF-8" src="https://widgets.booked.net/time/info?ver=2&domid=589&type=6&id=1246519141&scode=124&city_id=18881&wlangid=20&mode=1&details=0&background=ffffff&color=333333&add_background=a0a1a1&add_color=000000&head_color=333333&border=0&transparent=0">
                             </script>
+        </div>
+        <div class="spinner">
+           <div>
+            <label for="spinner">Виберіть значення:</label>
+            <input id="spinner" name="value">
+        </div>
+        <div>
+            <button id="getvalue">Get value</button>
+            <button id="setvalue">Set value to 5</button>
+        </div> 
         </div>
 </body>
 
