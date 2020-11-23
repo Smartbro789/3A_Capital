@@ -14,20 +14,65 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
+  
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+  <script>
+  $( function() {
+    $( "#price" ).selectmenu();
+  } );
+  </script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
     <script>
-            $( function() {
-                var spinner = $( "#spinner" ).spinner();
-                $( "#getvalue" ).on( "click", function() {
-                alert( spinner.spinner( "value" ) );
-                });
-                $( "#setvalue" ).on( "click", function() {
-                spinner.spinner( "value", 5 );
-                });
-                $( "button" ).button();
-            } );
+        $(function () {
+            $(document).tooltip();
+        });
+    </script>
+
+    <style>
+        label {
+            display: inline-block;
+            width: 5em;
+        }
+
+        .ui-tooltip,
+        .arrow:after {
+            background: white;
+            border: 2px solid white;
+            width: 300px;
+            overflow: hidden;
+        }
+    </style>
+    <style>
+    fieldset {
+      border: 0;
+      background-color: white;
+    }
+    label {
+      display: block;
+      margin: 30px 0 0 0;
+    }
+    .overflow {
+      height: 200px;
+    }
+    option{
+        background-color: white;
+        width: 50px;
+    }
+  </style>
+    <script>
+        $(function () {
+            var spinner = $("#spinner").spinner();
+            $("#getvalue").on("click", function () {
+                alert(spinner.spinner("value"));
+            });
+            $("#setvalue").on("click", function () {
+                spinner.spinner("value", 5);
+            });
+            $("button").button();
+        });
     </script>
 </head>
 
@@ -84,22 +129,25 @@
                     </tr>
                 </table>
             </div>
-            <div class="form">
-                <form
-                    action="https://mobile-review.com/news/obnaruzhena-novaya-skam-sxema-obmana-predprinimatelej-v-internete">
-                    <p><b>Ваше имя:</b><br>
-                        <input type="text" size="40">
-                    </p>
-                    <p><b>Сколько вы хотите инвестировать:</b><Br>
-                        <input type="radio" name="option" value="bomj">100<br>
-                        <input type="radio" name="option" value="middle">2000<br>
-                        <input type="radio" name="option" value="krutelyk">5000<br>
-                    </p>
-                    <p><input type="submit" onclick="message()"></p>
-                </form>
-            </div>
+
 
         </div>
+        <div class="form">
+               <!--  <form action="https://mobile-review.com/news/obnaruzhena-novaya-skam-sxema-obmana-predprinimatelej-v-internete"> -->
+                 <form action="#">
+                    <p><label for="age">Введіть своє ім'я: </label><input id="age"
+                            title="Ми питаємо Ваше ім'я, щоб знати як до Вас звертатись."></p>
+                <fieldset>
+                            <label for="price">Сколько вы хотите инвестировать:</label>
+                            <select name="price" id="price">
+                                  <option value="bomj">100</option>
+                                  <option value="middle">2000</option>
+                                  <option value="krutelyk" selected="selected">5000</option>
+                            </select>
+                    <p><input type="submit" onclick="message()"></p>
+                </fieldset>
+                </form>
+            </div>
         <div class="list">
             <div class="container">
                 <p>Чому ви маєте обрати саме нас?</p>
@@ -121,50 +169,57 @@
         <div id="minfin-informer-m1Fn-currency" class="informer">
             Загружаем <a href="https://minfin.com.ua/currency/" target="_blank">курсы валют</a> от minfin.com.ua</a>
         </div>
-            <script>
-                var iframe = '<ifra'+'me width="275" height="120" fram'+'eborder="0" src="https://informer.minfin.com.ua/gen/course/?color=yellow" vspace="0" scrolling="no" hspace="0" allowtransparency="true"style="width:275px;height:120px;ove'+'rflow:hidden;"></iframe>';
-                var cl = 'minfin-informer-m1Fn-currency';
-                document.getElementById(cl).innerHTML = iframe; 
+        <script>
+            var iframe = '<ifra' + 'me width="275" height="120" fram' + 'eborder="0" src="https://informer.minfin.com.ua/gen/course/?color=yellow" vspace="0" scrolling="no" hspace="0" allowtransparency="true"style="width:275px;height:120px;ove' + 'rflow:hidden;"></iframe>';
+            var cl = 'minfin-informer-m1Fn-currency';
+            document.getElementById(cl).innerHTML = iframe; 
+        </script>
+    </div>
+    <div class="weather">
+        <a target="_blank" href="https://nochi.com/weather/kiev-18881"><img
+                src="https://w.bookcdn.com/weather/picture/32_18881_1_20_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=124&domid=604&anc_id=1337"
+                alt="booked.net" /></a>
+    </div>
+    <div class="cloak">
+        <script type="text/javascript">
+            var css_file = document.createElement("link");
+            css_file.setAttribute("rel", "stylesheet");
+            css_file.setAttribute("type", "text/css");
+            css_file.setAttribute("href", "//s.bookcdn.com//css/cl/bw-cl-120x45.css");
+            document.getElementsByTagName("head")[0].appendChild(css_file); 
+        </script>
+        <div id="tw_6_1246519141">
+            <div style="width:130px; height:45px; margin: 0 auto;">
+                <a href="https://nochi.com/time/kiev-18881">Киев</a><br />
+            </div>
+        </div>
+        <script type="text/javascript">
+            function setWidgetData_1246519141(data) {
+                if (typeof (data) != 'undefined' && data.results.length > 0) {
+                    for (var i = 0; i < data.results.length; ++i) {
+                        var objMainBlock = ''; var params = data.results[i];
+                        objMainBlock = document.getElementById('tw_' + params.widget_type + '_' + params.widget_id); if
+                            (objMainBlock !== null) objMainBlock.innerHTML = params.html_code;
+                    }
+                }
+            } var clock_timer_1246519141 = -1;
+        </script>
+        <script type="text/javascript" charset="UTF-8"
+            src="https://widgets.booked.net/time/info?ver=2&domid=589&type=6&id=1246519141&scode=124&city_id=18881&wlangid=20&mode=1&details=0&background=ffffff&color=333333&add_background=a0a1a1&add_color=000000&head_color=333333&border=0&transparent=0">
             </script>
-        </div>
-        <div class="weather">
-            <a target="_blank" href="https://nochi.com/weather/kiev-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_20_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=124&domid=604&anc_id=1337" alt="booked.net"/></a>
-        </div>
-        <div class="cloak">
-            <script type="text/javascript"> 
-                var css_file=document.createElement("link"); 
-                css_file.setAttribute("rel","stylesheet"); 
-                css_file.setAttribute("type","text/css"); 
-                css_file.setAttribute("href","//s.bookcdn.com//css/cl/bw-cl-120x45.css"); 
-                document.getElementsByTagName("head")[0].appendChild(css_file); 
-                </script> 
-                <div id="tw_6_1246519141">
-                    <div style="width:130px; height:45px; margin: 0 auto;">
-                        <a href="https://nochi.com/time/kiev-18881">Киев</a><br/>
-                    </div>
-                </div> 
-                <script type="text/javascript"> 
-                function setWidgetData_1246519141(data){ 
-                    if(typeof(data) != 'undefined' && data.results.length > 0) { 
-                        for(var i = 0; i < data.results.length; ++i) { 
-                            var objMainBlock = ''; 
-                            var params = data.results[i]; 
-                            objMainBlock = document.getElementById('tw_'+params.widget_type+'_'+params.widget_id); 
-                            if(objMainBlock !== null) objMainBlock.innerHTML = params.html_code; } } } 
-                            var clock_timer_1246519141 = -1; </script> 
-                            <script type="text/javascript" charset="UTF-8" src="https://widgets.booked.net/time/info?ver=2&domid=589&type=6&id=1246519141&scode=124&city_id=18881&wlangid=20&mode=1&details=0&background=ffffff&color=333333&add_background=a0a1a1&add_color=000000&head_color=333333&border=0&transparent=0">
-                            </script>
-        </div>
-        <div class="spinner">
-           <div>
+    </div>
+
+    <div class="spinner">
+        <div>
             <label for="spinner">Виберіть значення:</label>
             <input id="spinner" name="value">
         </div>
         <div>
             <button id="getvalue">Get value</button>
             <button id="setvalue">Set value to 5</button>
-        </div> 
         </div>
+    </div>
+
 </body>
 
 </html>
