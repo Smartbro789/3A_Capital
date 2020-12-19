@@ -116,7 +116,7 @@
             }
             
         } else {
-            echo "<script>alert('Пішов звідси нахуй найобер!')</script>";
+            echo "<script>alert('Аккаунт с такими даними вже існує!')</script>";
         }
         mysqli_close($link);
     }
@@ -173,8 +173,6 @@
                     </tr>
                 </table>
             </div>
-
-
         </div>
         <div class="form">
             <!--  <form action="https://mobile-review.com/news/obnaruzhena-novaya-skam-sxema-obmana-predprinimatelej-v-internete"> -->
@@ -202,6 +200,9 @@
                     <input type="text" name="phone" /></p>
                 <input type="submit" value="Зареєструватися">
             </form>
+        </div>
+        <div>
+            <a class="link" href="login.php">Увійти</a> 
         </div>
         <div class="list">
             <div class="container">

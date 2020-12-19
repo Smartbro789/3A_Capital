@@ -31,6 +31,7 @@
             $row = mysqli_fetch_row($query);
             if ($row[1] == $password) {
                 echo "<script>alert('Успіх!')</script>";
+                echo "<script>document.location.href = profile.php</script>";
             }
             else{
                 echo "<script>alert('Пароль неправильний!')</script>";

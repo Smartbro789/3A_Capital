@@ -67,6 +67,16 @@ b>em {
     display: block;
 }
 
+.link {
+    background-color: gold;
+    margin-left: 10px;
+    padding: 3px 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
 input[type="submit"] {
     background-color: gold;
     margin: 0px 10px;
