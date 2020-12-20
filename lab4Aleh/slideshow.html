@@ -1,0 +1,49 @@
+<!-- Jermak -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Слайд-шоу</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="slideshow.css">
+</head>
+<script language="JavaScript" type="text/javascript">
+
+    var imagesArray = new Array('1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg');
+    var countImages = 0;
+    var timer;
+    function start() {
+        if (countImages > 4) {
+            countImages = 0;
+        }
+        document.images['imageShow'].src = imagesArray[countImages];
+        countImages = countImages + 1;
+    }
+    function changeSize() {
+        document.getElementById('imageShow').style.height = document.getElementById('imgH').value + "px";
+        document.getElementById('imageShow').style.width = document.getElementById('imgW').value + "px";
+    }
+</script>
+
+<body>
+    <input class="button" type="button" value="Start" onClick="timer = setInterval('start()', document.all.timer.value*1000)">
+    <input class="button" type="button" value="Change Size" onClick="changeSize();">
+    <input class="button" type="button" value="Stop" onClick="clearInterval(timer)">
+    <div class="change">
+        <img width="720" height="480 "border="1" alt="" id="imageShow">
+    </div>
+    
+    <div>
+       <p>
+        Введіть інтервал показу:
+        <input type="text" id="timer" value="1"><br><br>
+        Введіть ширину зображень:
+        <input type="text" id="imgW" value="720"><br><br>
+        Введіть висоту зображень:
+        <input type="text" id="imgH" value="480"> 
+    </p> 
+    </div>
+</body>
+
+</html>
