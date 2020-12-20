@@ -1,3 +1,6 @@
+<?php
+require_once 'sessionstart.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -10,9 +13,8 @@
 </head>
 
 <body>
-    <?php
-    require_once 'connect.php';
-
+<?php
+    
     if (isset($_POST['login']) && isset($_POST['password'])) {
 
         $link = mysqli_connect($host, $user, $password, $database)
@@ -31,7 +33,7 @@
             $row = mysqli_fetch_row($query);
             if ($row[1] == $password) {
                 echo "<script>alert('Успіх!')</script>";
-                echo "<script>document.location.href = profile.php</script>";
+                echo "<script>location.href = 'profile.php'</script>";
             }
             else{
                 echo "<script>alert('Пароль неправильний!')</script>";
@@ -48,9 +50,9 @@
         <h2 style="margin-left: 10px">Увійти в систему</h2>
         <form method="POST" style="margin-left: 10px">
             <p>Логін:<br>
-                <input type="text" name="login" /></p>
+                <input type="text" name="login" value="<?php echo (isset($_POST["login"])) ? $_POST["login"] : null; // Заполняем поле по умолчанию ?>" /></p>
             <p>Пароль: <br>
-                <input type="password" name="password" /></p>
+                <input type="text" name="password"value="<?php echo (isset($_POST["password"])) ? $_POST["password"] : null;?>" /></p>
             <input type="submit" value="Увійти">
         </form>
     </div>
