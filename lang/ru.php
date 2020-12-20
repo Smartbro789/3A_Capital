@@ -60,4 +60,12 @@ $lang['regform'] = '<h3 style="margin-left: 10px">Зареестрируйтес
                 <input type="submit" value="Зареестрироватся">
             </form>';
 $lang['loginbtn'] = 'Войти';
+
+$lang['archtable'] = '  <td>ID</td>
+                        <td>Фамилия</td>
+                        <td>Имя</td>
+                        <td>Отчество</td>
+                        <td>Контактный телефон</td>';
+$lang['conn'] = 'Соединение успешно';
+$lang['noconn'] = 'Ошибка соединения';
 ?>

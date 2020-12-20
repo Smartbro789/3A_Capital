@@ -60,5 +60,12 @@ $lang['regform'] = '<h3 style="margin-left: 10px">Sign up and start earning cash
                 <input type="submit" value="Sign up">
             </form>';
 $lang['loginbtn'] = 'Sign in';
+$lang['archtable'] = '  <td>ID</td>
+                        <td>Surname</td>
+                        <td>Name</td>
+                        <td>Second name</td>
+                        <td>Phone</td>';
+$lang['conn'] = 'Conected';
+$lang['noconn'] = 'No connection';
 
 ?>

@@ -3,6 +3,7 @@ if(isset($_GET['lang'])){
     $language = $_GET['lang'];
     setcookie("lang", $language, time()+15552000000);
 }
+
 elseif (isset($_COOKIE['lang'])){
     $host  = $_SERVER['HTTP_HOST'];
     $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
@@ -12,92 +13,19 @@ elseif (isset($_COOKIE['lang'])){
     exit;
 }
 ?>
+
 <?php
 include('lang/lang.php');
 ?>
+
 <!DOCTYPE html>
-
-
 <html lang="ru" >
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <title>AAA Capital</title>
-    <script>
-        // function message() {
-        //     alert("Дякуємо за довіру!!!")
-        // }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <script>
-        $(function() {
-            $("#price").selectmenu();
-        });
-    </script>
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
-    <script>
-        $(function() {
-            $(document).tooltip();
-        });
-    </script>
-
-    <style>
-        label {
-            display: inline-block;
-            width: 5em;
-        }
-
-        .ui-tooltip,
-        .arrow:after {
-            background: white;
-            border: 2px solid white;
-            width: 300px;
-            overflow: hidden;
-        }
-    </style>
-    <style>
-        fieldset {
-            border: 0;
-            background-color: white;
-        }
-
-        label {
-            display: block;
-            margin: 30px 0 0 0;
-        }
-
-        .overflow {
-            height: 200px;
-        }
-
-        option {
-            background-color: white;
-            width: 50px;
-        }
-    </style>
-    <script>
-        $(function() {
-            var spinner = $("#spinner").spinner();
-            $("#getvalue").on("click", function() {
-                alert(spinner.spinner("value"));
-            });
-            $("#setvalue").on("click", function() {
-                spinner.spinner("value", 5);
-            });
-            $("button").button();
-        });
-    </script>
+	<meta charset ="UTF-8">
+	<title>Lab7</title>
+	<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <?php
     require_once 'connect.php';
@@ -242,6 +170,35 @@ include('lang/lang.php');
         <script type="text/javascript" charset="UTF-8" src="https://widgets.booked.net/time/info?ver=2&domid=589&type=6&id=1246519141&scode=124&city_id=18881&wlangid=20&mode=1&details=0&background=ffffff&color=333333&add_background=a0a1a1&add_color=000000&head_color=333333&border=0&transparent=0">
         </script>
     </div>
-</body>
 
+<?php
+$host = 'localhost';
+$user = 'root';
+$password = 'root';
+$db_name = 'archive';
+$conn = mysqli_connect("localhost", "root", "root", "archive")
+    or die("<?=$lang['noconn']?> " . mysqli_error());
+echo "<?=$lang['conn']?>";
+?>
+<h2>Archive Table</h2>
+<table>
+	<tr>
+		<?=$lang['archtable']?>
+	</tr>
+<?php
+$result = mysqli_query($conn, "SELECT * FROM client");
+while ($row = mysqli_fetch_array($result)){
+?>
+	<tr>
+		<td><?php echo $row['id']?></td>
+		<td><?php echo $row['Surname']?></td>
+		<td><?php echo $row['Name']?></td>
+		<td><?php echo $row['Middlename']?></td>
+		<td><?php echo $row['contactPhone']?></td>
+	</tr>
+<?php
+}
+?>
+</table>
+</body>
 </html>

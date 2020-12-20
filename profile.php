@@ -1,3 +1,6 @@
+<?php
+require_once 'sessionstart.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -12,7 +15,7 @@
 <body>
     <?php
     require_once 'connect.php';
-
+    
     if (isset($_POST['investname']) && isset($_POST['amount'])) {
 
         $link = mysqli_connect($host, $user, $password, $database)
@@ -32,7 +35,7 @@
                 $row = mysqli_fetch_row($query);
                 $id = $row[0];
 
-                $query = mysqli_query($link, "INSERT INTO invest VALUES (NULL, '$userid', '$id', '$amount'") or die("Ошибка " . mysqli_error($link));
+                $query = mysqli_query($link, "INSERT INTO invest VALUES (NULL, '$iduser', '$id', '$amount'") or die("Ошибка " . mysqli_error($link));
 
                 if ($query) {
                     echo "<script>alert('Успіх!')</script>";
@@ -49,18 +52,18 @@
         </header>
         <div style="margin-left: 10px">
             <h3>Вітаємо, вас обслуговує менеджер: <?php
-                                                    $link = mysqli_connect($host, $user, $password, $database)
-                                                        or die("Ошибка " . mysqli_error($link));
+            
+            $link = mysqli_connect($host, $user, $password, $database)
+                or die("Ошибка " . mysqli_error($link));
+            $query = mysqli_query($link, "SELECT idworker FROM relation WHERE iduser = '$id'") or die("Ошибка " . mysqli_error($link));
+            $row = mysqli_fetch_row($query);
+            $idworker = $row[0];
 
-                                                    $query = mysqli_query($link, "SELECT idworker FROM relation WHERE iduser = '$id'") or die("Ошибка " . mysqli_error($link));
-                                                    $row = mysqli_fetch_row($query);
-                                                    $idworker = $row[0];
+            $query1 = mysqli_query($link, "SELECT name FROM worker WHERE id = '$idworker'") or die("Ошибка " . mysqli_error($link));
+            $row = mysqli_fetch_row($query1);
+            $name = $row[0];
 
-                                                    $query1 = mysqli_query($link, "SELECT name FROM worker WHERE id = '$idworker'") or die("Ошибка " . mysqli_error($link));
-                                                    $row = mysqli_fetch_row($query1);
-                                                    $name = $row[0];
-
-                                                    echo "$name" ?></h3>
+            echo "$name" ?></h3>
             <h4>Для Вас доступні такі інвестиційні плани:</h4>
         </div>
 

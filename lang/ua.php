@@ -61,4 +61,12 @@ $lang['regform'] = '<h3 style="margin-left: 10px">Зареєструйстесь
             </form>';
 $lang['loginbtn'] = 'Увійти';
 
+
+$lang['archtable'] = '  <td>ID</td>
+                        <td>Прязвище</td>
+                        <td>І`мя</td>
+                        <td>По-Батькові</td>
+                        <td>Контактний телефон</td>';
+$lang['conn'] = 'З`єднання успішне';
+$lang['noconn'] = 'Помилка з`єднання';
 ?>
