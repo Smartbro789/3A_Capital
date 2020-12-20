@@ -53,42 +53,17 @@
 
         $query = "SELECT id FROM photographer WHERE phone = '$phone'";
         $photographerid = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-        while ($row = mysqli_fetch_array($photographerid)){
+        while ($row = mysqli_fetch_array($photographerid)) {
             $id = $row['id'];
         }
 
-        if ($id) {
-            
-            $query1 = "INSERT INTO photo (filename, place, date, idphotographer) VALUES('$filename', '$place', STR_TO_DATE('$date','%Y-%m-%d'), '$id')";
-            $result1 = mysqli_query($link, $query1) or die("Ошибка " . mysqli_error($link));
-            if ($result1) {
-                echo "<span style='color:blue;'>Данные добавлены</span>";
-            }
+        $query = "INSERT INTO user VALUES(NULL, '$login', '$password', '$email', '$phone')";
+
+        // выполняем запрос
+        $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+        if ($result) {
+            echo "<span style='color:blue;'>Данные добавлены</span>";
         }
-        else {
-            $query1 = "INSERT INTO photo (filename, place, date) VALUES('$filename', '$place', STR_TO_DATE('$date','%Y-%m-%d'))";
-            $query2 = "INSERT INTO photographer (name, surname, phone) VALUES('$name', '$surname','$phone')";
-            echo "<span style='color:blue;'>else</span>";
-
-            $result1 = mysqli_query($link, $query1) or die("Ошибка " . mysqli_error($link));
-            if ($result1) {
-                echo "<span style='color:blue;'>Данные добавлены</span>";
-            }
-            $result2 = mysqli_query($link, $query2) or die("Ошибка " . mysqli_error($link));
-            if ($result2) {
-                echo "<span style='color:blue;'>Данные добавлены</span>";
-            }
-
-            $query3 = "SELECT id FROM photographer";
-            $idd = mysqli_query($link, $query3) or die("Ошибка " . mysqli_error($link));
-            while ($row = mysqli_fetch_array($idd)){
-                $id = $row['id'];
-            }
-
-            $query4 = "UPDATE photo SET idphotographer = '$id' WHERE filename = '$filename'";
-            $result3 = mysqli_query($link, $query4) or die("Ошибка " . mysqli_error($link));
-        }
-
         // закрываем подключение
         mysqli_close($link);
     }

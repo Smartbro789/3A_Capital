@@ -1,3 +1,280 @@
-<?php
-phpinfo();
-?>
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>AAA Capital</title>
+    <script>
+        // function message() {
+        //     alert("Дякуємо за довіру!!!")
+        // }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $(function() {
+            $("#price").selectmenu();
+        });
+    </script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script>
+        $(function() {
+            $(document).tooltip();
+        });
+    </script>
+
+    <style>
+        label {
+            display: inline-block;
+            width: 5em;
+        }
+
+        .ui-tooltip,
+        .arrow:after {
+            background: white;
+            border: 2px solid white;
+            width: 300px;
+            overflow: hidden;
+        }
+    </style>
+    <style>
+        fieldset {
+            border: 0;
+            background-color: white;
+        }
+
+        label {
+            display: block;
+            margin: 30px 0 0 0;
+        }
+
+        .overflow {
+            height: 200px;
+        }
+
+        option {
+            background-color: white;
+            width: 50px;
+        }
+    </style>
+    <script>
+        $(function() {
+            var spinner = $("#spinner").spinner();
+            $("#getvalue").on("click", function() {
+                alert(spinner.spinner("value"));
+            });
+            $("#setvalue").on("click", function() {
+                spinner.spinner("value", 5);
+            });
+            $("button").button();
+        });
+    </script>
+</head>
+
+<body>
+    <?php
+    require_once 'connect.php';
+
+    if (isset($_POST['login']) && isset($_POST['password'])) {
+
+        $link = mysqli_connect($host, $user, $password, $database)
+            or die("Ошибка " . mysqli_error($link));
+
+
+        $login = htmlentities(mysqli_real_escape_string($link, $_POST['login']));
+        $password = htmlentities(mysqli_real_escape_string($link, $_POST['password']));
+        $email = htmlentities(mysqli_real_escape_string($link, $_POST['email']));
+        $phone = htmlentities(mysqli_real_escape_string($link, $_POST['phone']));
+
+
+        // Проверка на наличие юзера с такими регистрационными данными
+
+        $check1 = mysqli_query($link, "SELECT * FROM user WHERE login = '$login'") or die("Ошибка " . mysqli_error($link));
+        $check2 = mysqli_query($link, "SELECT * FROM user WHERE email = '$email'") or die("Ошибка " . mysqli_error($link));
+        $check3 = mysqli_query($link, "SELECT * FROM user WHERE phone = '$phone'") or die("Ошибка " . mysqli_error($link));
+        
+        $rows1 = mysqli_num_rows($check1);
+        $rows2 = mysqli_num_rows($check2);
+        $rows3 = mysqli_num_rows($check3);
+
+        if ($rows1 == 0 and $rows2 == 0 and $rows3 == 0) {
+
+            $query = "INSERT INTO user VALUES (NULL, '$login', '$password', '$email', '$phone', 0)";
+
+            $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+            if ($result) {
+                echo "<script>alert('Реєстрація прошла успішно!')</script>";
+                echo "<script>document.location.href = 'login.php'</script>";
+            }
+            
+        } else {
+            echo "<script>alert('Аккаунт с такими даними вже існує!')</script>";
+        }
+        mysqli_close($link);
+    }
+    ?>
+    <div class="background">
+        <header id="header">
+            <div class="container">
+                <div class="header_logo">AAA Capital</div>
+                <a class="link" href="page.html">page 1</a>
+                <a class="link" href="table.html">page 2</a>
+            </div>
+        </header>
+        <div class="slogan">
+            <p><i>Ми заробляємо гроші,</i> доки <strong>ви спите.</strong></p>
+            <b>Бажаємо <em>солодких снів!</b></em>
+        </div>
+        <div style="padding-left: 10px;">
+            <a class="link" href="review.html">Відгуки</a>
+            <a class="link" href="review2.html">Відгуки2</a>
+            <a class="link" href="review3.html">Відгуки3</a>
+        </div>
+
+        <div class="table">
+            <div>
+                <table border="1">
+                    <caption>Інвестиційні плани</caption>
+                    <tr>
+                        <th>Інвестиційний план</th>
+                        <th>Типи активів</th>
+                        <th>Мінімальна інвестиція</th>
+                        <th>Середня дохідність</th>
+                        <th>Ризик фактор (1-5)</th>
+                    </tr>
+                    <tr>
+                        <td>Safe</td>
+                        <td>Казначейські облігації</td>
+                        <td>5000$</td>
+                        <td>10%</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>Дорогоцінні метали, сільськогосподарські товари, енергетика</td>
+                        <td>2000$</td>
+                        <td>15%</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Risky</td>
+                        <td>Акції</td>
+                        <td>100$</td>
+                        <td>30-50%</td>
+                        <td>5</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="form">
+            <!--  <form action="https://mobile-review.com/news/obnaruzhena-novaya-skam-sxema-obmana-predprinimatelej-v-internete"> -->
+            <!-- <form action="#">
+                <p><label for="age">Введіть своє ім'я: </label><input id="age" title="Ми питаємо Ваше ім'я, щоб знати як до Вас звертатись."></p>
+                <fieldset>
+                    <label for="price">Сколько вы хотите инвестировать:</label>
+                    <select name="price" id="price">
+                        <option value="bomj">100</option>
+                        <option value="middle">2000</option>
+                        <option value="krutelyk" selected="selected">5000</option>
+                    </select>
+                    <p><input type="submit" onclick="message()"></p>
+                </fieldset>
+            </form> -->
+            <h3 style="margin-left: 10px">Зареєструйстесь та почніть заробляти кеш!</h3>
+            <form method="POST" style="margin-left: 10px">
+                <p>Логін:<br>
+                    <input type="text" name="login" /></p>
+                <p>Пароль: <br>
+                    <input type="password" name="password" /></p>
+                <p>Email: <br>
+                    <input type="text" name="email"></p>
+                <p>Номер телефону:<br>
+                    <input type="text" name="phone" /></p>
+                <input type="submit" value="Зареєструватися">
+            </form>
+        </div>
+        <div>
+            <a class="link" href="login.php">Увійти</a> 
+        </div>
+        <div class="list">
+            <div class="container">
+                <p>Чому ви маєте обрати саме нас?</p>
+                <ul style="list-style: square outside;">
+                    <li>Команда професіоналів, яка має досвід інвестування 3 місяці!</li>
+                    <li>Одиниці задоволених клієнтів!</li>
+                    <li>Маємо неофіційну ліцензію!</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <a target="_blank" href="https://www.facebook.com" class="fa fa-facebook"></a>
+            <a target="_blank" href="https://twitter.com/?lang=ru" class="fa fa-twitter"></a>
+            <a target="_blank" href="https://www.google.com.ua/?hl=ru" class="fa fa-google"></a>
+            <a target="_blank" href="https://www.youtube.com" class="fa fa-youtube"></a>
+            <a target="_blank" href="https://www.instagram.com/?hl=ru" class="fa fa-instagram"></a>
+            <a target="_blank" href="https://www.pinterest.com" class="fa fa-pinterest"></a>
+        </div>
+        <div id="minfin-informer-m1Fn-currency" class="informer">
+            Загружаем <a href="https://minfin.com.ua/currency/" target="_blank">курсы валют</a> от minfin.com.ua</a>
+        </div>
+        <script>
+            var iframe = '<ifra' + 'me width="275" height="120" fram' + 'eborder="0" src="https://informer.minfin.com.ua/gen/course/?color=yellow" vspace="0" scrolling="no" hspace="0" allowtransparency="true"style="width:275px;height:120px;ove' + 'rflow:hidden;"></iframe>';
+            var cl = 'minfin-informer-m1Fn-currency';
+            document.getElementById(cl).innerHTML = iframe;
+        </script>
+    </div>
+    <div class="weather">
+        <a target="_blank" href="https://nochi.com/weather/kiev-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_20_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=124&domid=604&anc_id=1337" alt="booked.net" /></a>
+    </div>
+    <div class="cloak">
+        <script type="text/javascript">
+            var css_file = document.createElement("link");
+            css_file.setAttribute("rel", "stylesheet");
+            css_file.setAttribute("type", "text/css");
+            css_file.setAttribute("href", "//s.bookcdn.com//css/cl/bw-cl-120x45.css");
+            document.getElementsByTagName("head")[0].appendChild(css_file);
+        </script>
+        <div id="tw_6_1246519141">
+            <div style="width:130px; height:45px; margin: 0 auto;">
+                <a href="https://nochi.com/time/kiev-18881">Киев</a><br />
+            </div>
+        </div>
+        <script type="text/javascript">
+            function setWidgetData_1246519141(data) {
+                if (typeof(data) != 'undefined' && data.results.length > 0) {
+                    for (var i = 0; i < data.results.length; ++i) {
+                        var objMainBlock = '';
+                        var params = data.results[i];
+                        objMainBlock = document.getElementById('tw_' + params.widget_type + '_' + params.widget_id);
+                        if (objMainBlock !== null) objMainBlock.innerHTML = params.html_code;
+                    }
+                }
+            }
+            var clock_timer_1246519141 = -1;
+        </script>
+        <script type="text/javascript" charset="UTF-8" src="https://widgets.booked.net/time/info?ver=2&domid=589&type=6&id=1246519141&scode=124&city_id=18881&wlangid=20&mode=1&details=0&background=ffffff&color=333333&add_background=a0a1a1&add_color=000000&head_color=333333&border=0&transparent=0">
+        </script>
+    </div>
+
+    <div class="spinner">
+        <div>
+            <label for="spinner">Виберіть значення:</label>
+            <input id="spinner" name="value">
+        </div>
+        <div>
+            <button id="getvalue">Get value</button>
+            <button id="setvalue">Set value to 5</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
