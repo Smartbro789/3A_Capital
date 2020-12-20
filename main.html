@@ -14,15 +14,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-  
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-  <script>
-  $( function() {
-    $( "#price" ).selectmenu();
-  } );
-  </script>
+    <script>
+        $(function () {
+            $("#price").selectmenu();
+        });
+    </script>
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
     <script>
@@ -46,22 +44,25 @@
         }
     </style>
     <style>
-    fieldset {
-      border: 0;
-      background-color: white;
-    }
-    label {
-      display: block;
-      margin: 30px 0 0 0;
-    }
-    .overflow {
-      height: 200px;
-    }
-    option{
-        background-color: white;
-        width: 50px;
-    }
-  </style>
+        fieldset {
+            border: 0;
+            background-color: white;
+        }
+
+        label {
+            display: block;
+            margin: 30px 0 0 0;
+        }
+
+        .overflow {
+            height: 200px;
+        }
+
+        option {
+            background-color: white;
+            width: 50px;
+        }
+    </style>
     <script>
         $(function () {
             var spinner = $("#spinner").spinner();
@@ -74,6 +75,7 @@
             $("button").button();
         });
     </script>
+
 </head>
 
 <body>
@@ -133,21 +135,21 @@
 
         </div>
         <div class="form">
-               <!--  <form action="https://mobile-review.com/news/obnaruzhena-novaya-skam-sxema-obmana-predprinimatelej-v-internete"> -->
-                 <form action="#">
-                    <p><label for="age">Введіть своє ім'я: </label><input id="age"
-                            title="Ми питаємо Ваше ім'я, щоб знати як до Вас звертатись."></p>
+            <!--  <form action="https://mobile-review.com/news/obnaruzhena-novaya-skam-sxema-obmana-predprinimatelej-v-internete"> -->
+            <form action="#">
+                <p><label for="age">Введіть своє ім'я: </label><input id="age"
+                        title="Ми питаємо Ваше ім'я, щоб знати як до Вас звертатись."></p>
                 <fieldset>
-                            <label for="price">Сколько вы хотите инвестировать:</label>
-                            <select name="price" id="price">
-                                  <option value="bomj">100</option>
-                                  <option value="middle">2000</option>
-                                  <option value="krutelyk" selected="selected">5000</option>
-                            </select>
+                    <label for="price">Сколько вы хотите инвестировать:</label>
+                    <select name="price" id="price">
+                        <option value="bomj">100</option>
+                        <option value="middle">2000</option>
+                        <option value="krutelyk" selected="selected">5000</option>
+                    </select>
                     <p><input type="submit" onclick="message()"></p>
                 </fieldset>
-                </form>
-            </div>
+            </form>
+        </div>
         <div class="list">
             <div class="container">
                 <p>Чому ви маєте обрати саме нас?</p>
@@ -219,7 +221,6 @@
             <button id="setvalue">Set value to 5</button>
         </div>
     </div>
-
 </body>
 
 </html>
