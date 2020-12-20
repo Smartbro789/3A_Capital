@@ -1,5 +1,24 @@
+<?php
+if(isset($_GET['lang'])){
+    $language = $_GET['lang'];
+    setcookie("lang", $language, time()+15552000000);
+}
+elseif (isset($_COOKIE['lang'])){
+    $host  = $_SERVER['HTTP_HOST'];
+    $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    $extra = 'index.php?lang=';
+    $lang = $_COOKIE['lang'];
+    header("Location: http://$host$uri/$extra$lang");
+    exit;
+}
+?>
+<?php
+include('lang/lang.php');
+?>
 <!DOCTYPE html>
-<html lang="ru">
+
+
+<html lang="ru" >
 
 <head>
     <meta charset="UTF-8">
@@ -111,12 +130,12 @@
 
             $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
             if ($result) {
-                echo "<script>alert('Реєстрація прошла успішно!')</script>";
+                echo $lang['alert'];
                 echo "<script>document.location.href = 'login.php'</script>";
             }
             
         } else {
-            echo "<script>alert('Аккаунт с такими даними вже існує!')</script>";
+            echo $lang['alertdenie'];
         }
         mysqli_close($link);
     }
@@ -125,51 +144,27 @@
         <header id="header">
             <div class="container">
                 <div class="header_logo">AAA Capital</div>
-                <a class="link" href="page.html">page 1</a>
-                <a class="link" href="table.html">page 2</a>
+                <a class="link" href="index.php?lang=ua" onclick="alert('Обрана мова - Українська')"><img src="images/langboxes/ukr.png" height="30"></a>
+                <a class="link" href="index.php?lang=ru" onclick="alert('Выбранный язык - Русский')"><img src="images/langboxes/rus.png" height="30"></a>
+                <a class="link" href="index.php?lang=eng" onclick="alert('Chosen language - English')"><img src="images/langboxes/eng.png" height="30"></a><br>
+                <a class="link" href="page.html"><?=$lang['page1']?></a>
+                <a class="link" href="table.html"><?=$lang['page2']?></a>
             </div>
         </header>
         <div class="slogan">
-            <p><i>Ми заробляємо гроші,</i> доки <strong>ви спите.</strong></p>
-            <b>Бажаємо <em>солодких снів!</b></em>
+            <p><?=$lang['slogan']?></p>
+            <?=$lang['wish']?>
         </div>
         <div style="padding-left: 10px;">
-            <a class="link" href="review.html">Відгуки</a>
-            <a class="link" href="review2.html">Відгуки2</a>
-            <a class="link" href="review3.html">Відгуки3</a>
+            <a class="link" href="review.html"><?=$lang['review1']?></a>
+            <a class="link" href="review2.html"><?=$lang['review2']?></a>
+            <a class="link" href="review3.html"><?=$lang['review3']?></a>
         </div>
 
         <div class="table">
             <div>
                 <table border="1">
-                    <caption>Інвестиційні плани</caption>
-                    <tr>
-                        <th>Інвестиційний план</th>
-                        <th>Типи активів</th>
-                        <th>Мінімальна інвестиція</th>
-                        <th>Середня дохідність</th>
-                        <th>Ризик фактор (1-5)</th>
-                    </tr>
-                    <tr>
-                        <td>Safe</td>
-                        <td>Казначейські облігації</td>
-                        <td>5000$</td>
-                        <td>10%</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>Normal</td>
-                        <td>Дорогоцінні метали, сільськогосподарські товари, енергетика</td>
-                        <td>2000$</td>
-                        <td>15%</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>Risky</td>
-                        <td>Акції</td>
-                        <td>100$</td>
-                        <td>30-50%</td>
-                        <td>5</td>
+                    <?=$lang['table']?>
                     </tr>
                 </table>
             </div>
@@ -188,30 +183,14 @@
                     <p><input type="submit" onclick="message()"></p>
                 </fieldset>
             </form> -->
-            <h3 style="margin-left: 10px">Зареєструйстесь та почніть заробляти кеш!</h3>
-            <form method="POST" style="margin-left: 10px">
-                <p>Логін:<br>
-                    <input type="text" name="login" /></p>
-                <p>Пароль: <br>
-                    <input type="password" name="password" /></p>
-                <p>Email: <br>
-                    <input type="text" name="email"></p>
-                <p>Номер телефону:<br>
-                    <input type="text" name="phone" /></p>
-                <input type="submit" value="Зареєструватися">
-            </form>
+            <?=$lang['regform']?>
         </div>
         <div>
-            <a class="link" href="login.php">Увійти</a> 
+            <a class="link" href="login.php"><?=$lang['loginbtn']?></a> 
         </div>
         <div class="list">
             <div class="container">
-                <p>Чому ви маєте обрати саме нас?</p>
-                <ul style="list-style: square outside;">
-                    <li>Команда професіоналів, яка має досвід інвестування 3 місяці!</li>
-                    <li>Одиниці задоволених клієнтів!</li>
-                    <li>Маємо неофіційну ліцензію!</li>
-                </ul>
+                <?=$lang['recomendations']?>
             </div>
         </div>
         <div>
@@ -223,7 +202,7 @@
             <a target="_blank" href="https://www.pinterest.com" class="fa fa-pinterest"></a>
         </div>
         <div id="minfin-informer-m1Fn-currency" class="informer">
-            Загружаем <a href="https://minfin.com.ua/currency/" target="_blank">курсы валют</a> от minfin.com.ua</a>
+            <?=$lang['informer']?>
         </div>
         <script>
             var iframe = '<ifra' + 'me width="275" height="120" fram' + 'eborder="0" src="https://informer.minfin.com.ua/gen/course/?color=yellow" vspace="0" scrolling="no" hspace="0" allowtransparency="true"style="width:275px;height:120px;ove' + 'rflow:hidden;"></iframe>';
@@ -263,18 +242,6 @@
         <script type="text/javascript" charset="UTF-8" src="https://widgets.booked.net/time/info?ver=2&domid=589&type=6&id=1246519141&scode=124&city_id=18881&wlangid=20&mode=1&details=0&background=ffffff&color=333333&add_background=a0a1a1&add_color=000000&head_color=333333&border=0&transparent=0">
         </script>
     </div>
-
-    <div class="spinner">
-        <div>
-            <label for="spinner">Виберіть значення:</label>
-            <input id="spinner" name="value">
-        </div>
-        <div>
-            <button id="getvalue">Get value</button>
-            <button id="setvalue">Set value to 5</button>
-        </div>
-    </div>
-
 </body>
 
 </html>

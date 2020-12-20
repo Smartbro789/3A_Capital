@@ -45,5 +45,19 @@ $lang['recomendations'] = '<p>Почему вы должны выбрать ие
                     <li>Имеем неофициальную лицензию!</li>
                 </ul>';
 $lang['informer'] = 'Загружаем <a href="https://minfin.com.ua/currency/" target="_blank">курсы валют</a> от minfin.com.ua</a>';
-
+$lang['alert'] = '<script>alert("Реестрация прошла успешно!")</script>';
+$lang['alertdenie'] = '<script>alert("Аккаунт с такими данными уже существует!")</script>';
+$lang['regform'] = '<h3 style="margin-left: 10px">Зареестрируйтесь и начните зарабатывать кэш!</h3>
+            <form method="POST" style="margin-left: 10px">
+                <p>Логин:<br>
+                    <input type="text" name="login" /></p>
+                <p>Пароль: <br>
+                    <input type="password" name="password" /></p>
+                <p>Email: <br>
+                    <input type="text" name="email"></p>
+                <p>Номер телефона:<br>
+                    <input type="text" name="phone" /></p>
+                <input type="submit" value="Зареестрироватся">
+            </form>';
+$lang['loginbtn'] = 'Войти';
 ?>
