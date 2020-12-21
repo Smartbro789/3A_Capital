@@ -24,7 +24,7 @@ include('lang/lang.php');
 <head>
 	<meta charset ="UTF-8">
 	<title>Lab7</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="main.css">
 </head>
 <body>
     <?php
@@ -177,8 +177,8 @@ $user = 'root';
 $password = 'root';
 $db_name = 'archive';
 $conn = mysqli_connect("localhost", "root", "root", "archive")
-    or die("<?=$lang['noconn']?> " . mysqli_error());
-echo "<?=$lang['conn']?>";
+    or die('<?=$lang["noconn"]?>'  . mysqli_error());
+echo '<?=$lang["conn"]?>';
 ?>
 <h2>Archive Table</h2>
 <table>
