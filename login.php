@@ -21,7 +21,7 @@
         $login = htmlentities(mysqli_real_escape_string($link, $_POST['login']));
         $password = htmlentities(mysqli_real_escape_string($link, $_POST['password']));
 
-        $query = mysqli_query($link, "SELECT login, password FROM user WHERE login = '$login'") or die("Ошибка " . mysqli_error($link));
+        $query = mysqli_query($link, "SELECT * FROM user WHERE login = '$login'") or die("Ошибка " . mysqli_error($link));
 
         $rows = mysqli_num_rows($query);
 
@@ -29,9 +29,9 @@
             echo "<script>alert('Аккаунту с таким логіном не існує, пройдіть реєстрацію!')</script>";
         } else {
             $row = mysqli_fetch_row($query);
-            if ($row[1] == $password) {
+            if ($row[2] == $password) {
                 echo "<script>alert('Успіх!')</script>";
-                echo "<script>document.location.href = profile.php</script>";
+                echo "<script>location.href = 'profile.php?id=$row[0]'</script>";
             }
             else{
                 echo "<script>alert('Пароль неправильний!')</script>";
@@ -50,7 +50,7 @@
             <p>Логін:<br>
                 <input type="text" name="login" /></p>
             <p>Пароль: <br>
-                <input type="password" name="password" /></p>
+                <input type="text" name="password" /></p>
             <input type="submit" value="Увійти">
         </form>
     </div>

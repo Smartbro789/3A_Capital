@@ -13,6 +13,8 @@
     <?php
     require_once 'connect.php';
 
+    $iduser = $_GET['id'];
+
     if (isset($_POST['investname']) && isset($_POST['amount'])) {
 
         $link = mysqli_connect($host, $user, $password, $database)
@@ -21,7 +23,7 @@
         $investname = htmlentities(mysqli_real_escape_string($link, $_POST['investname']));
         $amount = htmlentities(mysqli_real_escape_string($link, $_POST['amount']));
 
-        $query = mysqli_query($link, "SELECT id FROM investplan WHERE name = '$investname'") or die("Ошибка " . mysqli_error($link));
+        $query = mysqli_query($link, "SELECT id FROM investplan WHERE type = '$investname'") or die("Ошибка " . mysqli_error($link));
 
         $rows = mysqli_num_rows($query);
 
@@ -32,10 +34,10 @@
                 $row = mysqli_fetch_row($query);
                 $id = $row[0];
 
-                $query = mysqli_query($link, "INSERT INTO invest VALUES (NULL, '$userid', '$id', '$amount'") or die("Ошибка " . mysqli_error($link));
+                $result = mysqli_query($link, "INSERT INTO invest VALUES (NULL, '$iduser', '$id', '$amount')") or die("Ошибка " . mysqli_error($link));
 
-                if ($query) {
-                    echo "<script>alert('Успіх!')</script>";
+                if ($result) {
+                    echo "<script>alert('Успішна інвестиція!')</script>";
                 }
             }
         }
@@ -48,19 +50,24 @@
             </div>
         </header>
         <div style="margin-left: 10px">
-            <h3>Вітаємо, вас обслуговує менеджер: <?php
+            <h3>Вітаємо, вас обслуговує менеджер <?php
                                                     $link = mysqli_connect($host, $user, $password, $database)
                                                         or die("Ошибка " . mysqli_error($link));
+                                                    $id = $_GET['id'];
+
 
                                                     $query = mysqli_query($link, "SELECT idworker FROM relation WHERE iduser = '$id'") or die("Ошибка " . mysqli_error($link));
                                                     $row = mysqli_fetch_row($query);
                                                     $idworker = $row[0];
 
                                                     $query1 = mysqli_query($link, "SELECT name FROM worker WHERE id = '$idworker'") or die("Ошибка " . mysqli_error($link));
-                                                    $row = mysqli_fetch_row($query1);
-                                                    $name = $row[0];
+                                                    if ($query1) {
+                                                        $row = mysqli_fetch_row($query1);
+                                                        $name = $row[0];
+                                                        echo "$name";
+                                                    }
 
-                                                    echo "$name" ?></h3>
+                                                    ?></h3>
             <h4>Для Вас доступні такі інвестиційні плани:</h4>
         </div>
 
@@ -98,39 +105,46 @@
         <h3 style="margin-left: 10px">Вибирайте план та інвестуйте!</h3>
         <form method="POST" style="margin-left: 10px">
             <p>Назва плану:<br>
-                <input type="investname" name="login" /></p>
+                <input type="text" name="investname" /></p>
             <p>Сума вкладень: <br>
-                <input type="amount" name="password" /></p>
+                <input type="text" name="amount" /></p>
             <input type="submit" value="Інвестувати">
         </form>
         <h3 style="margin-left: 10px">Ваші інвестиційні плани:</h3>
         <?php
+        $iduser = $_GET['id'];
+
         $query = mysqli_query($link, "SELECT * FROM invest WHERE iduser = '$iduser'") or die("Ошибка " . mysqli_error($link));
 
         if ($query) {
-            if (mysqli_num_rows($query) == 0) {
+            $rows = mysqli_num_rows($query);
+            if ($rows == 0) {
                 echo "<p style='margin-left: 10px'>У вас ще немає активних інвестицій</p>";
             } else {
-                $row = mysqli_fetch_row($query);
-                $idinvestplan = $row[2];
-                $amount = $row[3];
+                // echo "<script>alert('$rows!')</script>";
+                echo "<table><tr><th>Тип</th><th>Сума інвестицій</th></tr>";
+                for ($i = 0; $i < $rows; ++$i) 
+                {
+                    $row = mysqli_fetch_row($query);
+                    $idinvestplan = $row[2];
+                    $amount = $row[3];
 
-                $query1 = mysqli_query($link, "SELECT * FROM investplan WHERE id = '$idinvestplan'") or die("Ошибка " . mysqli_error($link));
+                    $query1 = mysqli_query($link, "SELECT * FROM investplan WHERE id = '$idinvestplan'") or die("Ошибка " . mysqli_error($link));
 
-                if ($query1) {
-                    $rows = mysqli_num_rows($query1);
-
-                    echo "<table><tr><th>Тип</th><th>Сума інвестицій</th></tr>";
-                    for ($i = 0; $i < $rows; ++$i) {
-                        $row = mysqli_fetch_row($query1);
+                    if ($query1) {
+                        $rows1 = mysqli_num_rows($query1);
+                        // echo "<script>alert('$rows1!')</script>";
                         echo "<tr>";
-                        echo "<td>$row[1]</td><td>$amount</td>";
+                        for ($i = 0; $i < $rows1; ++$i) {
+                            $row1 = mysqli_fetch_row($query1);
+                            echo "<td>$row1[1]</td><td>$amount</td>";
+                        }
                         echo "</tr>";
                     }
-                    echo "</table>";
-
-                    mysqli_free_result($query1);
                 }
+                echo "</table>";
+
+                mysqli_free_result($query);
             }
         }
 
