@@ -59,12 +59,15 @@ require_once 'sessionstart.php';
 
 
                                                     $query = mysqli_query($link, "SELECT idworker FROM relation WHERE iduser = '$id'") or die("Ошибка " . mysqli_error($link));
+
                                                     $row = mysqli_fetch_row($query);
+
                                                     $idworker = $row[0];
 
                                                     $query1 = mysqli_query($link, "SELECT name FROM worker WHERE id = '$idworker'") or die("Ошибка " . mysqli_error($link));
                                                     if ($query1) {
                                                         $row = mysqli_fetch_row($query1);
+
                                                         $name = $row[0];
                                                         echo "$name";
                                                     }
@@ -97,6 +100,7 @@ require_once 'sessionstart.php';
 
                     for ($i = 0; $i < $rows; ++$i) {
                         $row = mysqli_fetch_row($result);
+
                         echo "<tr>";
                         for ($j = 1; $j < 5; ++$j) echo "<td>$row[$j]</td>";
                         echo "</tr>";
@@ -120,14 +124,14 @@ require_once 'sessionstart.php';
         $query = mysqli_query($link, "SELECT * FROM invest WHERE iduser = '$iduser'") or die("Ошибка " . mysqli_error($link));
 
         if ($query) {
+
             $rows = mysqli_num_rows($query);
             if ($rows == 0) {
                 echo "<p style='margin-left: 10px'>У вас ще немає активних інвестицій</p>";
             } else {
                 // echo "<script>alert('$rows!')</script>";
                 echo "<table><tr><th>Тип</th><th>Сума інвестицій</th></tr>";
-                for ($i = 0; $i < $rows; ++$i) 
-                {
+                for ($i = 0; $i < $rows; ++$i) {
                     $row = mysqli_fetch_row($query);
                     $idinvestplan = $row[2];
                     $amount = $row[3];
