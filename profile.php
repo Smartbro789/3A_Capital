@@ -1,3 +1,6 @@
+<?php
+require_once 'sessionstart.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -33,7 +36,6 @@
             } else {
                 $row = mysqli_fetch_row($query);
                 $id = $row[0];
-
                 $result = mysqli_query($link, "INSERT INTO invest VALUES (NULL, '$iduser', '$id', '$amount')") or die("Ошибка " . mysqli_error($link));
 
                 if ($result) {
@@ -68,6 +70,7 @@
                                                     }
 
                                                     ?></h3>
+
             <h4>Для Вас доступні такі інвестиційні плани:</h4>
         </div>
 
