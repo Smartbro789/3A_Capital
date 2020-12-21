@@ -23,7 +23,7 @@ include('lang/lang.php');
 
 <head>
 	<meta charset ="UTF-8">
-	<title>Lab7</title>
+	<title>AAA Capital</title>
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -72,9 +72,9 @@ include('lang/lang.php');
         <header id="header">
             <div class="container">
                 <div class="header_logo">AAA Capital</div>
-                <a class="link" href="index.php?lang=ua" onclick="alert('Обрана мова - Українська')"><img src="images/langboxes/ukr.png" height="30"></a>
-                <a class="link" href="index.php?lang=ru" onclick="alert('Выбранный язык - Русский')"><img src="images/langboxes/rus.png" height="30"></a>
-                <a class="link" href="index.php?lang=eng" onclick="alert('Chosen language - English')"><img src="images/langboxes/eng.png" height="30"></a><br>
+                <a href="index.php?lang=ua" onclick="alert('Обрана мова - Українська')"><img src="images/langboxes/ukr.png" height="30"></a>
+                <a href="index.php?lang=ru" onclick="alert('Выбранный язык - Русский')"><img src="images/langboxes/rus.png" height="30"></a>
+                <a href="index.php?lang=eng" onclick="alert('Chosen language - English')"><img src="images/langboxes/eng.png" height="30"></a><br>
                 <a class="link" href="page.html"><?=$lang['page1']?></a>
                 <a class="link" href="table.html"><?=$lang['page2']?></a>
             </div>
@@ -170,35 +170,5 @@ include('lang/lang.php');
         <script type="text/javascript" charset="UTF-8" src="https://widgets.booked.net/time/info?ver=2&domid=589&type=6&id=1246519141&scode=124&city_id=18881&wlangid=20&mode=1&details=0&background=ffffff&color=333333&add_background=a0a1a1&add_color=000000&head_color=333333&border=0&transparent=0">
         </script>
     </div>
-
-<?php
-$host = 'localhost';
-$user = 'root';
-$password = 'root';
-$db_name = 'archive';
-$conn = mysqli_connect("localhost", "root", "root", "archive")
-    or die('<?=$lang["noconn"]?>'  . mysqli_error());
-echo '<?=$lang["conn"]?>';
-?>
-<h2>Archive Table</h2>
-<table>
-	<tr>
-		<?=$lang['archtable']?>
-	</tr>
-<?php
-$result = mysqli_query($conn, "SELECT * FROM client");
-while ($row = mysqli_fetch_array($result)){
-?>
-	<tr>
-		<td><?php echo $row['id']?></td>
-		<td><?php echo $row['Surname']?></td>
-		<td><?php echo $row['Name']?></td>
-		<td><?php echo $row['Middlename']?></td>
-		<td><?php echo $row['contactPhone']?></td>
-	</tr>
-<?php
-}
-?>
-</table>
 </body>
 </html>

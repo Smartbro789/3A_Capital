@@ -13,8 +13,8 @@ require_once 'sessionstart.php';
 </head>
 
 <body>
-<?php
-    
+    <?php
+
     if (isset($_POST['login']) && isset($_POST['password'])) {
 
         $link = mysqli_connect($host, $user, $password, $database)
@@ -32,10 +32,15 @@ require_once 'sessionstart.php';
         } else {
             $row = mysqli_fetch_row($query);
             if ($row[2] == $password) {
+                $date_today = date("d.m.y");
+                $today[1] = date("H:i:s");
+                $file = 'log.txt';
+                $current = file_get_contents($file);
+                $current .= "$row[0], $row[1], $row[2], $today[1], $date_today \n";
+                file_put_contents($file, $current);
                 echo "<script>alert('Успіх!')</script>";
                 echo "<script>location.href = 'profile.php?id=$row[0]'</script>";
-            }
-            else{
+            } else {
                 echo "<script>alert('Пароль неправильний!')</script>";
             }
         }
@@ -50,9 +55,10 @@ require_once 'sessionstart.php';
         <h2 style="margin-left: 10px">Увійти в систему</h2>
         <form method="POST" style="margin-left: 10px">
             <p>Логін:<br>
-                <input type="text" name="login" value="<?php echo (isset($_POST["login"])) ? $_POST["login"] : null; // Заполняем поле по умолчанию ?>" /></p>
+                <input type="text" name="login" value="<?php echo (isset($_POST["login"])) ? $_POST["login"] : null; // Заполняем поле по умолчанию 
+                                                        ?>" /></p>
             <p>Пароль: <br>
-                <input type="text" name="password"value="<?php echo (isset($_POST["password"])) ? $_POST["password"] : null;?>" /></p>
+                <input type="text" name="password" value="<?php echo (isset($_POST["password"])) ? $_POST["password"] : null; ?>" /></p>
             <input type="submit" value="Увійти">
         </form>
     </div>
